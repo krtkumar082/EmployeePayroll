@@ -50,6 +50,13 @@ public void writeEmployeeData(IOService ioService) {
 	
 }
 
+public List<EmpPayrollData> readEmployeePayrollData(IOService ioService) {
+	List<EmpPayrollData> employePayrollDataList=new ArrayList<EmpPayrollData>();
+	if(ioService.equals(IOService.FILE_IO))
+		employePayrollDataList=new EmployeePayrollFileIOService().readData();
+	return employePayrollDataList;
+}
+
 
 public void printData(IOService ioService) {
 	if(ioService.equals(IOService.FILE_IO))
