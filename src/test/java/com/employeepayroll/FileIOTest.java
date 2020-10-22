@@ -11,6 +11,8 @@ import java.util.stream.IntStream;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.employeepayroll.FileUtils;
+
 public class FileIOTest {
     private static String HOME=System.getProperty("user.home");
     private static String PLAY_WITH_IO="TempPlayGround";
@@ -40,7 +42,11 @@ public class FileIOTest {
     		Assert.assertTrue(Files.exists(tempFile));
     	});
     	
-    	
+    	Files.list(playPath).filter(Files::isRegularFile).forEach(System.out::println);
+		Files.newDirectoryStream(playPath).forEach(System.out::println);
+		Files.newDirectoryStream(playPath, path -> path.toFile().isFile() && path.toString().startsWith("temp"))
+				.forEach(System.out::println);
+		;
     	
     }
 }
