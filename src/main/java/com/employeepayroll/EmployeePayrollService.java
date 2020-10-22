@@ -51,7 +51,11 @@ public void writeEmployeeData(IOService ioService) {
 }
 
 
-
+public void printData(IOService ioService) {
+	if(ioService.equals(IOService.FILE_IO))
+		new EmployeePayrollFileIOService().printData();
+	
+}
 
 public long countEntries(IOService ioService) {
 	if(ioService.equals(IOService.FILE_IO))
