@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.employeepayroll.EmployeePayrollService.IOService;
+
 public class EmployeePayrollService {
    public enum IOService{CONSOLE_IO,FILE_IO,DB_IO,REST_IO};
    private List<EmpPayrollData> employeePayrollList;
@@ -27,6 +29,7 @@ public class EmployeePayrollService {
 	employeePayrollService.writeEmployeeData(IOService.CONSOLE_IO);
 }
 
+  
 private void readEmployeeData(Scanner sc) {
 	System.out.println("enter the id");
 	int id=sc.nextInt();
@@ -41,11 +44,18 @@ private void readEmployeeData(Scanner sc) {
 public void writeEmployeeData(IOService ioService) {
 	  if(ioService.equals(EmployeePayrollService.IOService.CONSOLE_IO))
 	       System.out.println("writing the employee data"+employeePayrollList);
-	 /* else if(ioService.equals(EmployeePayrollService.IOService.FILE_IO))
-		  new EmployeePayrollFileIOService().writeData(employeePayrollList);*/
+	  else if(ioService.equals(EmployeePayrollService.IOService.FILE_IO))
+		  new EmployeePayrollFileIOService().writeData(employeePayrollList);
 		  
 	
 }
 
 
+
+
+public long countEntries(IOService ioService) {
+	if(ioService.equals(IOService.FILE_IO))
+		return new EmployeePayrollFileIOService().countEntries();
+	return 0;
+}
 }
