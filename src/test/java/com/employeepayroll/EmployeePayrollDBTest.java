@@ -35,4 +35,13 @@ public class EmployeePayrollDBTest {
 		Assert.assertEquals(4, empPayrollList.size());
 	}
 	
+	@Test
+	public void givenDBFindSumOfSalaryOfFemale_shouldReturnSum() throws EmployeePayrollException {
+		EmployeePayrollService empPayRollService = new EmployeePayrollService();
+		double sum = empPayRollService.getSumByGender(IOService.DB_IO,"F");
+		double sum1 = empPayRollService.getEmpDataGroupedByGender(IOService.DB_IO, "basic_pay", "SUM","F");
+	
+		Assert.assertTrue(sum == sum1);
+	}
+	
 }
