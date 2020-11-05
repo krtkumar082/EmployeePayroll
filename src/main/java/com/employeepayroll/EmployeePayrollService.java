@@ -1,5 +1,6 @@
 package com.employeepayroll;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -84,6 +85,10 @@ public void updateEmployeeSalary(String name, double salary) {
 	
 }
 
+
+public List<EmpPayrollData> getEmployeePayrollDataForDateRange(LocalDate startDate, LocalDate endDate) throws EmployeePayrollException{
+	return employeePayrollDBService.getEmployeePayrollDataForDateRange(startDate,endDate);
+}
 private EmpPayrollData getEmployeePayrollData(String name) {
 	return this.employeePayrollList.stream()
 			.filter(employeePayrollData -> employeePayrollData.getName().equals(name))
@@ -102,6 +107,8 @@ public long countEntries(IOService ioService) {
 		return new EmployeePayrollFileIOService().countEntries();
 	return 0;
 }
+
+
 
 
 
