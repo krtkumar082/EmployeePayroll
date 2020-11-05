@@ -108,6 +108,18 @@ public long countEntries(IOService ioService) {
 	return 0;
 }
 
+public double getSumByGender(IOService ioService, String gender) throws EmployeePayrollException {
+	double sum = 0.0;
+	if (ioService.equals(IOService.DB_IO))
+		return employeePayrollDBService.getSumByGender(gender);
+	return sum;
+}
+
+public double getEmpDataGroupedByGender(IOService ioService, String column, String operation, String gender) {
+	if (ioService.equals(IOService.DB_IO))
+		return employeePayrollDBService.getEmpDataGroupedByGender(column, operation, gender);
+	return 0.0;
+}
 
 
 
