@@ -84,7 +84,12 @@ public void updateEmployeeSalary(String name, double salary) {
 		employeePayrollData.salary = salary;
 	
 }
-
+public void addEmployeeToPayroll(String name, double salary, LocalDate startDate, String gender) {
+	
+		this.employeePayrollList.add(employeePayrollDBService.addEmployeeToPayroll(name,salary,startDate,gender));
+	
+	
+}
 
 public List<EmpPayrollData> getEmployeePayrollDataForDateRange(LocalDate startDate, LocalDate endDate) throws EmployeePayrollException{
 	return employeePayrollDBService.getEmployeePayrollDataForDateRange(startDate,endDate);
@@ -120,6 +125,8 @@ public double getEmpDataGroupedByGender(IOService ioService, String column, Stri
 		return employeePayrollDBService.getEmpDataGroupedByGender(column, operation, gender);
 	return 0.0;
 }
+
+
 
 
 
