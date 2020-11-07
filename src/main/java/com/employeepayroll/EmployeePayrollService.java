@@ -91,6 +91,11 @@ public void addEmployeeToPayroll(String name, double salary, LocalDate startDate
 	
 }
 
+public void remove(String name) {
+	employeePayrollDBService.remove(name);
+	
+}
+
 public List<EmpPayrollData> getEmployeePayrollDataForDateRange(LocalDate startDate, LocalDate endDate) throws EmployeePayrollException{
 	return employeePayrollDBService.getEmployeePayrollDataForDateRange(startDate,endDate);
 }
@@ -125,6 +130,8 @@ public double getEmpDataGroupedByGender(IOService ioService, String column, Stri
 		return employeePayrollDBService.getEmpDataGroupedByGender(column, operation, gender);
 	return 0.0;
 }
+
+
 
 
 
