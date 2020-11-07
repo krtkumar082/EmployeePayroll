@@ -84,9 +84,9 @@ public void updateEmployeeSalary(String name, double salary) {
 		employeePayrollData.salary = salary;
 	
 }
-public void addEmployeeToPayroll(String name, double salary, LocalDate startDate, String gender) {
+public void addEmployeeToPayroll(String name, double salary, LocalDate startDate, String gender,List<String> deptList) {
 	
-		this.employeePayrollList.add(employeePayrollDBService.addEmployeeToPayroll(name,salary,startDate,gender));
+		this.employeePayrollList.add(employeePayrollDBService.addEmployeeToPayroll(name,salary,startDate,gender,deptList));
 	
 	
 }

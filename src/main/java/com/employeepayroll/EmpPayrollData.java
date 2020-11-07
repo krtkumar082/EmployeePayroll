@@ -1,6 +1,7 @@
 package com.employeepayroll;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class EmpPayrollData {
     int id;
@@ -8,6 +9,7 @@ public class EmpPayrollData {
     double salary;
     String gender;
     public LocalDate startDate;
+    public List<String> deptList;
     
     public EmpPayrollData(int id,String name,double salary){
     	this.id=id;
@@ -24,6 +26,20 @@ public class EmpPayrollData {
     public EmpPayrollData(int id, String name, double salary, LocalDate startDate, String gender) {
 		this(id,name,salary,startDate);
 		this.gender = gender;
+	}
+    
+    public EmpPayrollData(Integer id, String name, Double salary, LocalDate startDate, String gender,
+			List<String> deptList) {
+		this(id, name, salary, startDate, gender);
+		this.setDeptList(deptList);
+	}
+
+	public List<String> getDeptList() {
+		return deptList;
+	}
+
+	public void setDeptList(List<String> deptList) {
+		this.deptList = deptList;
 	}
     public int getId() {
     	return this.id;
